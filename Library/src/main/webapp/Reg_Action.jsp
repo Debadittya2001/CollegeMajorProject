@@ -14,12 +14,12 @@ try{
 	ps.setString(2,email);
 	ps.setString(3,pass);
 	ps.executeUpdate();
-	response.sendRedirect("Register.html?msg=valid");
+	response.sendRedirect("Register.jsp?msg=valid");
 }
 catch(Exception e)
 {
 	System.out.println(e);
-	response.sendRedirect("Register.html?msg=invalid");
+	response.sendRedirect("Register.jsp?msg=invalid");
 }
 %>
 

@@ -1,0 +1,20 @@
+.reg_form{
+    max-width:fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.input_field{
+    margin-top: 50px ;
+}
+
+.reg_button{
+    align-self: center;
+    margin-top: 60px;
+}
+
+#container{
+   margin-top: 40px;
+}
