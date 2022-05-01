@@ -15,7 +15,9 @@
 		
 		<a href="addnewbook.jsp">Add New Book<i class='fas fa-plus-square'></i></a>
 		
-		<a href="">All Books & Edit Books<i class='fas fa-plus-square'></i></a>
+		<a href="AllBooks.jsp">All Books & Edit Books<i class='fas fa-plus-square'></i></a>
+		
+		<a href="../logout.jsp">Logout</a>
 		
 	
 	</div>

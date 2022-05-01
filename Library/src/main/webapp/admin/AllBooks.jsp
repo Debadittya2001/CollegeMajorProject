@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.sql.*" %>
 <%@ page import ="project.ConnectionProvider" %>
-<%@include file="header.jsp"  %>
-
+<%@include file="adminHeader.jsp"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,26 +9,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>HOME</h3>
-<% 
+<%
 String msg=request.getParameter("msg");
-if("added".equals(msg))
-{
-%>
-<h3>Book added successfully </h3>
+if("Done".equals(msg))
+{%>
+<h3 class="alert">Product Successfully Updated!</h3>
 <%} %>
 <%
-if("exist".equals(msg))
-{
-%>
-<h3>Book already exist in your cart! Quantity increased!</h3>
-<%} %>
-<%
-if("invalid".equals(msg))
-{
-%>
-<h3 class="alert">Something Went Wrong! Try Again!</h3>
-<%} %>
+if("Wrong".equals(msg))
+{%>
+<h3 class="alert">Something Went Wrong! Try again!</h3>
+<%} %>	
 <table>
 	<thead>
 		<tr>
@@ -48,7 +37,7 @@ if("invalid".equals(msg))
 	try{
 		Connection con=ConnectionProvider.getCon();
 		Statement st=con.createStatement();
-		ResultSet rs=st.executeQuery("select * from booklist where status='Available'");
+		ResultSet rs=st.executeQuery("select * from booklist");
 		while(rs.next())
 		{
 	%>
@@ -59,7 +48,7 @@ if("invalid".equals(msg))
 			<td><%=rs.getString(4)%></td>
 			<td><%=rs.getString(5)%></td>
 			<td><%=rs.getString(6)%></td>
-			<td><a href="addToCartAction.jsp?id=<%=rs.getString(1) %>">Add to cart</a></td>
+			<td><a href="EditBooklist.jsp?id=<%=rs.getString(1) %>">Edit<i class="fas fa-pen-fancy"></i></a></td>
 		</tr> 
 	<% 			
 		}
@@ -69,5 +58,8 @@ if("invalid".equals(msg))
 		}
 		%>
 	</tbody>
+</table>
+<br>
+<br>
 </body>
 </html>

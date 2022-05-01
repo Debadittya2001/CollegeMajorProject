@@ -22,7 +22,8 @@ try{
 	{	
 		z=1;
 	 	session.setAttribute("MailID",MailID);
-		response.sendRedirect("home.jsp");
+		response.sendRedirect("header.jsp");
+		
 	}
 	if(z==0)
 		response.sendRedirect("index.jsp?msg=notexist");

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*" %>
 <%@ page import ="project.ConnectionProvider" %>
 <%@include file="adminHeader.jsp"  %>
 
@@ -9,7 +9,7 @@
 <head>
 </head>
 <body>
-<%
+ <%
 String msg=request.getParameter("msg");
 if("Done".equals(msg))
 {%>
@@ -21,7 +21,7 @@ if("Wrong".equals(msg))
 <h3 class="alert">Something Went Wrong! Try Again!</h3>
 <%} %>
 <%
-int BID=0;
+int BID=1;
 try
 {
 	Connection con=ConnectionProvider.getCon();
@@ -32,14 +32,14 @@ try
 		BID=rs.getInt(1);
 		BID=BID+1;
 	}
-	System.out.println(BID);
+	
 }
 catch(Exception e)
 {}
-%>
+%> 
 <form action="addnewbook_Action.jsp" method="post">
-<h3>BookID: <% out.println(BID); %></h3>
-<input type="hidden" name="id" value="<% out.println(BID); %>">
+ <h3>BookID: <% out.println(BID); %></h3>
+<input type="hidden" name="id" value="<% out.println(BID); %>"> 
 
 <div class="left-div">
 	<h3>Enter Book Name</h3>
